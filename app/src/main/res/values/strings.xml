@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">mvvmCICD</string>
+    <string name="action_ok">OK</string>
+</resources>

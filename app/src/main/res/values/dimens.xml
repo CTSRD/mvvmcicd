@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="img_size_32">32dp</dimen>
+    <dimen name="img_size_40">40dp</dimen>
+    <dimen name="img_size_56">56dp</dimen>
+
+    <dimen name="button_size_36">36dp</dimen>
+    <dimen name="button_size_56">56dp</dimen>
+
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="padding_11">11dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_14">14dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_26">26dp</dimen>
+
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+
+
+    <dimen name="layout_height_5">5dp</dimen>
+    <dimen name="layout_height_48">48dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+</resources>

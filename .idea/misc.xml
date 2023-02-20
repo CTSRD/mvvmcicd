@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/drawable-hdpi/ic_baseline_add_24.xml" value="0.196" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/drawable-hdpi/ripple_primary_button.xml" value="0.196" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/drawable-hdpi/shape_checkbox_selector.xml" value="0.196" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/drawable-hdpi/shape_help_circle.xml" value="0.196" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2665" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/drawable/ripple_white_button.xml" value="0.196" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/drawable/shape_number_circle.xml" value="0.2665" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/drawable/shape_ripple_enable.xml" value="0.2665" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/activity_main.xml" value="0.2875" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/activity_network_map.xml" value="0.2875" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/content_cap_format.xml" value="0.2875" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/header_view_2_lines.xml" value="0.18802083333333333" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/layout_back_actionbar.xml" value="0.18802083333333333" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/layout_custom_bottom_dialog.xml" value="0.18802083333333333" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/layout_custom_bottom_sheet_dialog.xml" value="0.18802083333333333" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/layout_share_wifi.xml" value="0.18802083333333333" />
+        <entry key="..\:/AndroidStudioProjects/mvvmCICD/app/src/main/res/layout/tooltip_custom_dialog.xml" value="0.18802083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
