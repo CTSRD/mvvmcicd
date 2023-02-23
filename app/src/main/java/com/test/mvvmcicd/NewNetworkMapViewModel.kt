@@ -3,16 +3,20 @@ package com.test.mvvmcicd
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.test.mvvmcicd.model.*
 import com.test.mvvmcicd.utils.screenRectPx
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.stateIn
 import org.json.JSONObject
 import java.io.IOException
 import java.util.*
 import kotlin.math.cos
 import kotlin.math.sin
 
-class NewNetworkMapViewModel : ViewModel() {
+class NewNetworkMapViewModel (private val repository: NodesRepository): ViewModel() {
     private val SCREEN_WIDTH = screenRectPx.width()
     private val SCREEN_HEIGHT = screenRectPx.height()
     private val ICON_WIDTH = 60 + 24
@@ -23,7 +27,6 @@ class NewNetworkMapViewModel : ViewModel() {
     private val ORIGIN_Y = (SCREEN_HEIGHT) /2  - ICON_HEIGHT
 
     companion object {
-        var addFakeRE: Boolean = false
         var data_backup: String? = null
     }
 
@@ -106,6 +109,8 @@ class NewNetworkMapViewModel : ViewModel() {
                             return
                         }else{
                             getNetworkMap()
+                            getNodeList()
+                            getNodeNumbers()
                         }
                     } catch (e: IOException) {
                         e.printStackTrace()
@@ -124,15 +129,10 @@ class NewNetworkMapViewModel : ViewModel() {
             val data = JSONObject(response).getString("data")
             Log.i("getNetworkMap", "onSuccess$data")
             if (!data.isNullOrEmpty()) {
-                if (addFakeRE) {
-                    addFakeRe()
-                } else {
-                    inputNodes(data)
-                }
+                inputNodes(data)
                 data_backup = data
                 saveDisconnectNetworkMap(data)
             }
-            getNodeList()
         }
     }
 
@@ -149,7 +149,6 @@ class NewNetworkMapViewModel : ViewModel() {
     fun getNodeList(){
         val response = "{\"status\":200,\"message\":\"Success\",\"data\":{\"nodes\":[{\"lanmacaddr\":\"00:06:19:FF:00:12\",\"distance\":0,\"location\":\"CAP\",\"ipaddr\":\"192.168.0.1\",\"macaddr\":\"00:06:19:FF:00:11\",\"role\":\"CAP\",\"connected\":true},{\"lanmacaddr\":\"00:06:36:00:00:12\",\"distance\":3,\"location\":\"RE1\",\"ipaddr\":\"192.168.0.142\",\"macaddr\":\"00:06:36:00:00:11\",\"role\":\"RE\",\"connected\":true},{\"lanmacaddr\":\"00:06:19:FF:00:42\",\"distance\":3,\"location\":\"RE2\",\"ipaddr\":\"192.168.0.174\",\"macaddr\":\"00:06:19:FF:00:41\",\"role\":\"RE\",\"connected\":true}]}}"
         nodesList = NodesData.objectFromData(response)
-        getNodeNumbers()
     }
 
     fun findNodeBean(dataModel: NodeModel): String? {
@@ -159,28 +158,6 @@ class NewNetworkMapViewModel : ViewModel() {
             }
         }
         return null
-    }
-
-    var numberOfFakeRE = 0
-    fun addFakeRe() {
-        addFakeRE = true
-        if(data_backup == null) return
-        val dataModel = Gson().fromJson(data_backup, Data::class.java)
-        var nodelist: MutableList<Node> = dataModel.nodes.toMutableList()
-        val fakeRe = Node("00:06:19:40:47:99", 2, "Fake1", NodeType.RE.name, true, "00:06:19:40:47:3A")
-        nodelist.add(fakeRe)
-
-        if(numberOfFakeRE == 2) {
-            val fakeRe2 =
-                Node("00:06:19:40:47:98", 3, "Fake2", NodeType.RE.name, true, "00:06:19:40:47:99")
-            nodelist.add(fakeRe2)
-        }
-        dataModel.nodes = nodelist.toList()
-        inputNodes(Gson().toJson(dataModel))
-    }
-
-    fun removeFakeRe(){
-        addFakeRE = false
     }
 
     fun inputNodes(value: String){
